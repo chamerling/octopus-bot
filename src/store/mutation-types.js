@@ -1,0 +1,3 @@
+export const AUTHENTICATED = 'AUTHENTICATED';
+export const AUTHENTICATING = 'AUTHENTICATING';
+export const FETCH_USER = 'FETCH_USER';

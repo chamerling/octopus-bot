@@ -7,6 +7,7 @@ import axios from 'axios';
 
 import App from './App';
 import router from './router';
+import store from './store';
 import './main.styl';
 
 Vue.use(Vuetify);
@@ -29,6 +30,7 @@ Vue.use(require('@websanova/vue-auth'), {
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 });

@@ -2,23 +2,21 @@
   <div>
     <span>Hello OpenPaaS User</span>
     <a href="#" @click.prevent="loadUser()">Load user</a>
-    <pre>{{result}}</pre>
+    <span>{{ user }}</span>
   </div>
 </template>
 
 <script>
 export default {
   name: 'Home',
-  data () {
-    return {
-      result: {}
+  computed: {
+    user () {
+      return this.$store.state.session.user && this.$store.state.session.user._id;
     }
   },
   methods: {
     loadUser () {
-      this.$http.get('/user').then((response) => {
-        this.result = response.data
-      })
+      this.$store.dispatch('fetchUser');
     }
   }
 }
