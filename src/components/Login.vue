@@ -48,7 +48,7 @@ export default {
         fetchUser: false
       })
         .then((response) => {
-          console.log('Connect!');
+          this.$store.dispatch('fetchUser');
           return response.data;
         }, (err) => {
           console.log(err);
