@@ -11,5 +11,9 @@ export default {
 
   [types.FETCH_USER](state, value) {
     state.session.user = value;
+  },
+
+  [types.SET_JWT_TOKEN](state, value) {
+    state.session.jwtToken = value;
   }
 };

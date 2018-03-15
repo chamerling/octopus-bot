@@ -12,9 +12,10 @@ export const logout = ({ dispatch }) => new Promise((resolve) => {
   resolve();
 });
 
-export const resetSession = ({ commit }) => {
+export const resetSession = ({ commit, dispatch }) => {
   // TODO, should reset the whole store
   commit(types.FETCH_USER, {});
+  dispatch('setJWTToken', null);
 };
 
 export const fetchUser = ({ commit }) => {
@@ -22,3 +23,8 @@ export const fetchUser = ({ commit }) => {
     commit(types.FETCH_USER, response.data);
   });
 };
+
+export const setJWTToken = ({ commit }, token) => {
+  commit(types.SET_JWT_TOKEN, token);
+};
+

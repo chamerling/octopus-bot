@@ -49,6 +49,7 @@ export default {
       })
         .then((response) => {
           this.$store.dispatch('fetchUser');
+          this.$store.dispatch('setJWTToken', response.data);
           return response.data;
         }, (err) => {
           console.log(err);
