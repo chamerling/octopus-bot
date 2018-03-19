@@ -42,7 +42,7 @@ export default {
         },
         rememberMe: false,
         redirect: { name: 'Home' },
-        fetchUser: false
+        //fetchUser: false
       })
         .then((response) => {
           this.$store.dispatch('setJWTToken', response.data);

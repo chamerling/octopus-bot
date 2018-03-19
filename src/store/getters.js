@@ -1,3 +1,13 @@
-export const isAuthenticating = state => state.session.authenticating;
+const _ = require('lodash');
 
-export const isAuthenticated = state => state.session.authenticated;
+export const getEmailBaseUrl = state => {
+  const defaultUrl = state.baseUrl + '/jmap';
+
+  if (state.session.user) {
+    const inboxConfiguration = _.find(state.session.user.configurations.modules, { name: 'linagora.esn.unifiedinbox' });
+
+    return _.find(inboxConfiguration.configurations, { name: 'api' }).value || defaultUrl;
+  }
+
+  return defaultUrl;
+};

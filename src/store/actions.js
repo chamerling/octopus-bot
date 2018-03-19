@@ -31,8 +31,8 @@ export const setJWTToken = ({ commit }, token) => {
   commit(types.SET_JWT_TOKEN, token);
 };
 
-export const fetchLastEmails = ({ commit, state }) => {
-  const client = new EmailClient({ token: state.session.jwtToken, url: `${state.baseUrl}/jmap` });
+export const fetchLastEmails = ({ commit, state, getters }) => {
+  const client = new EmailClient({ token: state.session.jwtToken, url: getters.getEmailBaseUrl });
 
   client.getEmails().then(emails => commit(types.FETCH_LAST_EMAILS, emails));
 };

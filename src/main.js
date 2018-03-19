@@ -18,9 +18,9 @@ axios.defaults.baseURL = store.state.baseUrl;
 Vue.config.productionTip = false;
 
 Vue.use(require('@websanova/vue-auth'), {
-  auth: require('./auth/openpaas-jwt.js'),
-  http: require('@websanova/vue-auth/drivers/http/axios.1.x.js'),
-  router: require('@websanova/vue-auth/drivers/router/vue-router.2.x.js'),
+  auth: require('./auth/openpaas-jwt'),
+  http: require('@websanova/vue-auth/drivers/http/axios.1.x'),
+  router: require('@websanova/vue-auth/drivers/router/vue-router.2.x'),
   refreshData: {
     enabled: false
   },

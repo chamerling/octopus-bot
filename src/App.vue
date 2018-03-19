@@ -49,6 +49,11 @@ export default {
       drawer: false
     }
   },
+  created () {
+    this.$auth.ready(() => {
+      this.$store.dispatch('fetchUser');
+    });
+  },
   methods: {
     login () {
       this.$router.push({name: 'Login'})
