@@ -33,12 +33,9 @@ export default {
     };
   },
   methods: {
-    mounted() {
-      console.log(this.$auth.redirect());
-    },
     login() {
       this.$auth.login({
-        url: 'jwt/generate',
+        url: 'api/jwt/generate',
         auth: {
           username: this.email,
           password: this.password
@@ -48,11 +45,12 @@ export default {
         fetchUser: false
       })
         .then((response) => {
-          this.$store.dispatch('fetchUser');
           this.$store.dispatch('setJWTToken', response.data);
+          // TODO Fetch user CAN BE DONE BY vue-auth
+          this.$store.dispatch('fetchUser');
           return response.data;
         }, (err) => {
-          console.log(err);
+          // TODO: Set error and display a message
         });
     }
   }

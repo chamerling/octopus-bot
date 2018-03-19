@@ -13,6 +13,10 @@ export default {
     state.session.user = value;
   },
 
+  [types.FETCH_LAST_EMAILS](state, emails) {
+    state.emails.list = emails;
+  },
+
   [types.SET_JWT_TOKEN](state, value) {
     state.session.jwtToken = value;
   }

@@ -5,7 +5,7 @@ import Vuetify from 'vuetify';
 import VueAxios from 'vue-axios';
 import axios from 'axios';
 
-import App from './App';
+import App from './App.vue';
 import router from './router';
 import store from './store';
 import './main.styl';
@@ -13,7 +13,7 @@ import './main.styl';
 Vue.use(Vuetify);
 Vue.use(VueAxios, axios);
 Vue.router = router;
-axios.defaults.baseURL = 'http://localhost:8080/api';
+axios.defaults.baseURL = store.state.baseUrl;
 
 Vue.config.productionTip = false;
 
@@ -23,6 +23,11 @@ Vue.use(require('@websanova/vue-auth'), {
   router: require('@websanova/vue-auth/drivers/router/vue-router.2.x.js'),
   refreshData: {
     enabled: false
+  },
+  fetchData: {
+    url: 'api/user',
+    method: 'GET',
+    enabled: true
   }
 });
 

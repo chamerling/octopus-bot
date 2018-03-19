@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Login from '@/components/Login';
 import Home from '@/components/Home';
+import Emails from '@/components/Emails';
 
 Vue.use(Router);
 
@@ -21,6 +22,14 @@ export default new Router({
       component: Login,
       meta: {
         auth: false
+      }
+    },
+    {
+      path: '/emails',
+      name: 'Emails',
+      component: Emails,
+      meta: {
+        auth: true
       }
     }
   ]

@@ -3,11 +3,11 @@
 // It sends back the tokek which is in jwt/generate response
 
 module.exports = {
-  request: function(req, token) {
+  request(req, token) {
     this.options.http._setHeaders.call(this, req, { Authorization: `Bearer  ${token}` });
   },
 
-  response: function(res) {
+  response(res) {
     if (res.request.responseURL.endsWith('jwt/generate')) {
       return res.data;
     }
