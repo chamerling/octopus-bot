@@ -37,6 +37,12 @@ export const fetchLastEmails = ({ commit, state, getters }) => {
   client.getEmails().then(emails => commit(types.FETCH_LAST_EMAILS, emails));
 };
 
+export const fetchNextEvent = ({ commit }) => {
+  Vue.axios.get('calendar/api/events/next').then(response => {
+    commit(types.FETCH_NEXT_EVENT, response.data);
+  });
+};
+
 // UI
 
 export const setSidebar = ({ commit }, value) => {
