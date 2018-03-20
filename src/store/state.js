@@ -1,4 +1,5 @@
 export default {
+  sidebar: true,
   baseUrl: 'https://openpaas.linagora.com',
   emails: {
     list: [],

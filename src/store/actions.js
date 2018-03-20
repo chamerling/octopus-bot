@@ -36,3 +36,9 @@ export const fetchLastEmails = ({ commit, state, getters }) => {
 
   client.getEmails().then(emails => commit(types.FETCH_LAST_EMAILS, emails));
 };
+
+// UI
+
+export const setSidebar = ({ commit }, value) => {
+  commit(types.SET_SIDERBAR, value);
+};

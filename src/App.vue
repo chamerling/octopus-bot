@@ -1,8 +1,9 @@
 <template>
-  <v-app id="app">
+  <v-app id="app" dark>
     <div v-if="$auth.ready()">
-      <v-toolbar class="blue" dark color="red" dense fixed clipped-left app>
-        <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+      <sidebar v-if="$auth.check()" />
+      <v-toolbar v-if="$auth.check()" dark fixed clipped-left app>
+        <v-toolbar-side-icon @click.stop="sidebar = !sidebar"></v-toolbar-side-icon>
         <v-toolbar-title>OctoPus</v-toolbar-title>
         <v-spacer></v-spacer>
         <v-btn icon>
@@ -16,9 +17,6 @@
             <v-list-tile v-if="$auth.check()" @click.prevent="logout">
               <v-list-tile-title>Logout</v-list-tile-title>
             </v-list-tile>
-            <v-list-tile v-if="!$auth.check()" @click.prevent="login">
-              <v-list-tile-title>Login</v-list-tile-title>
-            </v-list-tile>
             <v-list-tile>
               <v-list-tile-title>About</v-list-tile-title>
             </v-list-tile>
@@ -27,7 +25,7 @@
       </v-toolbar>
       <main>
         <v-content>
-          <v-container fluid>
+          <v-container fluid fill-height>
             <v-layout justify-center align-center>
               <router-view></router-view>
             </v-layout>
@@ -42,11 +40,18 @@
 </template>
 
 <script>
+import Sidebar from '@/components/Sidebar';
+
 export default {
   name: 'App',
-  data () {
-    return {
-      drawer: false
+  computed: {
+    sidebar: {
+      get: function() {
+        return this.$store.state.sidebar
+      },
+      set: function(newValue) {
+        this.$store.dispatch('setSidebar', newValue);
+      }
     }
   },
   created () {
@@ -63,8 +68,11 @@ export default {
         this.$router.push({name: 'Login'});
       });
     }
+  },
+  components: {
+    'Sidebar': Sidebar
   }
-}
+};
 </script>
 
 <style>

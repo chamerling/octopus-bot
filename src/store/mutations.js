@@ -19,5 +19,9 @@ export default {
 
   [types.SET_JWT_TOKEN](state, value) {
     state.session.jwtToken = value;
+  },
+
+  [types.SET_SIDERBAR](state, value) {
+    state.sidebar = value;
   }
 };

@@ -1,11 +1,11 @@
 <template>
  <v-layout row>
-    <v-flex>
+    <v-flex shrink>
       <v-list three-line>
         <template v-for="(email, index) in emails">
           <v-list-tile avatar :key="email.id" class="email">
             <v-list-tile-avatar>
-              <v-avatar class="blue" :size="40">
+              <v-avatar class="red" :size="40">
                 <span class="white--text headline">{{email.from.email[0].toUpperCase()}}</span>
               </v-avatar>
             </v-list-tile-avatar>

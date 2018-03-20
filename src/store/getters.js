@@ -11,3 +11,5 @@ export const getEmailBaseUrl = state => {
 
   return defaultUrl;
 };
+
+export const getUserAvatarUrl = state => `${state.baseUrl}/api/user/profile/avatar`;
