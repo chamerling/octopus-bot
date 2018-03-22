@@ -42,3 +42,7 @@ export const fetchLastEmails = ({ commit, state, getters }) => {
 export const setSidebar = ({ commit }, value) => {
   commit(types.SET_SIDERBAR, value);
 };
+
+export const sendBotMessage = ({ commit }, message) => {
+  commit(types.SEND_BOT_MESSAGE, message);
+};

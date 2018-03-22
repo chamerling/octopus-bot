@@ -23,5 +23,9 @@ export default {
 
   [types.SET_SIDERBAR](state, value) {
     state.sidebar = value;
+  },
+
+  [types.SEND_BOT_MESSAGE](state, message) {
+    state.bot.messages.list.push(message);
   }
 };
