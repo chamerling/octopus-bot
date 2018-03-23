@@ -43,6 +43,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
+import Emails from '@/components/Emails';
 
 export default {
   name: 'ChatBot',
@@ -66,6 +67,19 @@ export default {
       this.$store.dispatch('sendBotMessage', { content: this.message, createdAt: new Date(), type: 'user' });
       this.message = '';
     }
+  },
+  created() {
+    this.$bot.listen(/beer/, {}, (message) => {
+      message.reply('🍺');
+    });
+
+    this.$bot.listen(/who/, {}, (message) => {
+      message.reply(`You are ${this.$store.getters.getUserName}`);
+    });
+
+    this.$bot.listen(/time/, {}, (message) => {
+      message.reply(new Date());
+    });
   }
 };
 </script>

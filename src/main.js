@@ -8,8 +8,10 @@ import axios from 'axios';
 import App from './App.vue';
 import router from './router';
 import store from './store';
+import VueBot from './bot/plugin';
 import './main.styl';
 
+Vue.use(VueBot, { store });
 Vue.use(Vuetify);
 Vue.use(VueAxios, axios);
 Vue.router = router;

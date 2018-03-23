@@ -5,3 +5,4 @@ export const FETCH_LAST_EMAILS = 'FETCH_LAST_EMAILS';
 export const SET_JWT_TOKEN = 'SET_JWT_TOKEN';
 export const SET_SIDERBAR = 'SET_SIDERBAR';
 export const SEND_BOT_MESSAGE = 'SEND_BOT_MESSAGE';
+export const ON_BOT_MESSAGE = 'ON_BOT_MESSAGE';

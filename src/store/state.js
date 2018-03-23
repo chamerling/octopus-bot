@@ -5,12 +5,7 @@ export default {
     messages: {
       list: [
         {
-          content: 'What is my last email?',
-          createdAt: new Date(),
-          type: 'user'
-        },
-        {
-          content: 'Your last email is from chamerling@linagora.com',
+          content: 'Hello! What can I do?',
           createdAt: new Date(),
           type: 'bot'
         }
