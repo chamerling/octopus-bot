@@ -25,8 +25,8 @@
                 <img :src="getUserAvatarUrl">
               </v-list-tile-avatar>
               <v-list-tile-avatar v-if="message.type === 'bot'">
-                <v-avatar class="red" :size="40">
-                  <span class="white--text headline">O</span>
+                <v-avatar :size="50">
+                  <span class="botavatar">🐙</span>
                 </v-avatar>
               </v-list-tile-avatar>
               <v-list-tile-content>
@@ -87,3 +87,9 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+  .botavatar {
+    font-size: 40px;
+  }
+</style>
