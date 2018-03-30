@@ -6,7 +6,11 @@ export default class Response {
     this.options = options;
   }
 
+  replyText(text) {
+    this.bot.send({ content: text });
+  }
+
   reply(content) {
-    this.bot.send({ content });
+    this.bot.send(content);
   }
 }

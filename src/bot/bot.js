@@ -27,7 +27,7 @@ export default class Bot {
   }
 
   send(message = {}) {
-    message.type = 'bot';
+    message.type = message.type || 'bot';
     message.createdAt = message.createdAt || new Date();
     message.content = message.content || 'I can not say anything...';
 

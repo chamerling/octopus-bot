@@ -33,6 +33,7 @@
                 <v-list-tile-title v-html="message.content"></v-list-tile-title>
               </v-list-tile-content>
             </v-list-tile>
+            <component :key="message.title" v-if="message.component" :is="message.component"></component>
           </template>
         </v-list>
       </v-card>
@@ -70,15 +71,18 @@ export default {
   },
   created() {
     this.$bot.listen(/beer/, {}, (message) => {
-      message.reply('🍺');
+      message.replyText('Cheers 🍺');
     });
 
     this.$bot.listen(/who/, {}, (message) => {
-      message.reply(`You are ${this.$store.getters.getUserName}`);
+      message.replyText(`You are ${this.$store.getters.getUserName}`);
     });
 
-    this.$bot.listen(/time/, {}, (message) => {
-      message.reply(new Date());
+    this.$bot.listen(/last email/, {}, (message) => {
+      message.reply({
+        content: 'Here are your last emails:',
+        component: Emails
+      });
     });
   }
 };
