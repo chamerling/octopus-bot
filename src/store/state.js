@@ -1,6 +1,7 @@
 export default {
   sidebar: true,
-  baseUrl: 'https://openpaas.linagora.com',
+  // checkk webpack config
+  baseUrl: process.env.OPENPAAS,
   bot: {
     messages: {
       list: [
