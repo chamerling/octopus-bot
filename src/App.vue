@@ -6,9 +6,6 @@
         <v-toolbar-side-icon @click.stop="sidebar = !sidebar"></v-toolbar-side-icon>
         <v-toolbar-title>OctoPus</v-toolbar-title>
         <v-spacer></v-spacer>
-        <v-btn icon>
-          <v-icon>notifications</v-icon>
-        </v-btn>
         <v-menu bottom left>
           <v-btn icon slot="activator" dark>
             <v-icon>more_vert</v-icon>
@@ -17,8 +14,10 @@
             <v-list-tile v-if="$auth.check()" @click.prevent="logout">
               <v-list-tile-title>Logout</v-list-tile-title>
             </v-list-tile>
-            <v-list-tile>
-              <v-list-tile-title>About</v-list-tile-title>
+            <v-list-tile href="https://github.com/chamerling/octopus" target="_blank">
+              <v-list-tile-title>
+                About
+              </v-list-tile-title>
             </v-list-tile>
           </v-list>
         </v-menu>
