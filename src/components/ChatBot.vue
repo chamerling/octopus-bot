@@ -1,6 +1,6 @@
 <template>
   <v-container fluid>
-    <v-form ref="form" v-on:submit="sendMessage">
+    <v-form ref="form" v-on:submit.prevent="sendMessage">
       <v-text-field
         color="cyan darken"
         placeholder="Ask the bot..."
