@@ -9,9 +9,13 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 import VueBot from './bot/plugin';
+import bot from './bot';
 import './main.styl';
 
-Vue.use(VueBot, { store });
+Vue.use(VueBot, {
+  store,
+  listeners: bot.listeners
+});
 Vue.use(Vuetify);
 Vue.use(VueAxios, axios);
 Vue.router = router;

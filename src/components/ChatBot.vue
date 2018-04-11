@@ -44,7 +44,6 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import Emails from '@/components/Emails';
 
 export default {
   name: 'ChatBot',
@@ -76,13 +75,6 @@ export default {
 
     this.$bot.listen(/who/, {}, (message) => {
       message.replyText(`You are ${this.$store.getters.getUserName}`);
-    });
-
-    this.$bot.listen(/last email/, {}, (message) => {
-      message.reply({
-        content: 'Here are your last emails:',
-        component: Emails
-      });
     });
   }
 };

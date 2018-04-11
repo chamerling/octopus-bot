@@ -7,6 +7,10 @@ export default class Bot {
     this.listeners = [];
   }
 
+  configure(listeners) {
+    listeners.forEach(listener => this.listen(listener.pattern, listener.options || {}, listener.handler || function defaultHandler() {}));
+  }
+
   listen(pattern, options, handler) {
     this.listeners.push(new Listener(this, pattern, options, handler));
   }
