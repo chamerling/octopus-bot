@@ -33,7 +33,7 @@
                 <v-list-tile-title v-html="message.content"></v-list-tile-title>
               </v-list-tile-content>
             </v-list-tile>
-            <component :key="message.title" v-if="message.component" :is="message.component"></component>
+            <component :key="message.title" v-if="message.component" :is="message.component" v-bind="message.data"></component>
           </template>
         </v-list>
       </v-card>
@@ -69,7 +69,7 @@ export default {
     }
   },
   created() {
-    this.$bot.listen(/beer/, {}, (message) => {
+    this.$bot.listen(/beer/, {description: 'We can have beers 🍻'}, (message) => {
       message.replyText('Cheers 🍺');
     });
 
