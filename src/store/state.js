@@ -4,13 +4,7 @@ export default {
   baseUrl: process.env.OPENPAAS,
   bot: {
     messages: {
-      list: [
-        {
-          content: 'Hello! What can I do? (type "help" if you are lost)',
-          createdAt: new Date(),
-          type: 'bot'
-        }
-      ]
+      list: []
     }
   },
   emails: {

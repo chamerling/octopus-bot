@@ -40,6 +40,8 @@ export default class Bot {
         }
       }
     });
+
+    this.send({ content: 'Hello! What can I do? (type "help" if you are lost)' });
   }
 
   send(message = {}) {
