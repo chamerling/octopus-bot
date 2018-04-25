@@ -69,10 +69,6 @@ export default {
     }
   },
   created() {
-    this.$bot.listen(/beer/, {description: 'We can have beers 🍻'}, (message) => {
-      message.replyText('Cheers 🍺');
-    });
-
     this.$bot.listen(/who/, {}, (message) => {
       message.replyText(`You are ${this.$store.getters.getUserName}`);
     });
