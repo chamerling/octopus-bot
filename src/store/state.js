@@ -11,6 +11,9 @@ export default {
     list: [],
     jmapClient: null
   },
+  events: {
+    next: {}
+  },
   session: {
     jwtToken: localStorage.getItem('default_auth_token'),
     user: null

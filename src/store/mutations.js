@@ -17,6 +17,10 @@ export default {
     state.emails.list = emails;
   },
 
+  [types.FETCH_NEXT_EVENT](state, event) {
+    state.events.next = event;
+  },
+
   [types.SET_JWT_TOKEN](state, value) {
     state.session.jwtToken = value;
   },
